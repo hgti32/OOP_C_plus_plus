@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile Resources",
+      "type": "shell",
+      "command": "windres",
+      "args": ["resource.rc", "-O", "coff", "-o", "resource.res"],
+      "options": {
+        "cwd": "${workspaceFolder}\\Lab_1"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "Build C++ Project",
+      "type": "cppbuild",
+      "command": "g++",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "-DUNICODE", // Добавили этот флаг
+        "-D_UNICODE",
+        "main.cpp",
+        "module1.cpp",
+        "module2_1.cpp",
+        "module2_2.cpp",
+        "resource.res",
+        "-o",
+        "Lab1.exe",
+        "-mwindows"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\Lab_1"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": ["Compile Resources"]
+    }
+  ]
+}

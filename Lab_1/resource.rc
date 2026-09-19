@@ -1,0 +1,48 @@
+#include "resource.h"
+#include <windows.h>
+
+IDC_LAB1 MENU
+BEGIN
+    POPUP "Файл"
+    BEGIN
+        MENUITEM "Вихід", IDM_EXIT
+    END
+    POPUP "Завдання"
+    BEGIN
+        MENUITEM "Робота1", IDM_WORK1
+        MENUITEM "Робота2", IDM_WORK2
+    END
+END
+
+// --- ВАРІАНТ 1 (Скролбар) ---
+IDD_DIALOG_WORK1 DIALOGEX 0, 0, 200, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Робота 1 - Скролбар"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "50", IDC_SCROLL_VAL, 80, 15, 40, 10
+    SCROLLBAR       IDC_SCROLLBAR1, 10, 30, 180, 14, SBS_HORZ
+    DEFPUSHBUTTON   "Так", IDOK, 45, 70, 50, 14
+    PUSHBUTTON      "Відміна", IDCANCEL, 105, 70, 50, 14
+END
+
+// --- ВАРІАНТ 2 (Вікно 1) ---
+IDD_DIALOG_WORK2_1 DIALOGEX 0, 0, 200, 80
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Робота 2 - Вікно 1"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Далі >", IDC_BTN_NEXT, 45, 45, 50, 14
+    PUSHBUTTON      "Відміна", IDCANCEL, 105, 45, 50, 14
+END
+
+// --- ВАРІАНТ 2 (Вікно 2) ---
+IDD_DIALOG_WORK2_2 DIALOGEX 0, 0, 200, 80
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Робота 2 - Вікно 2"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "< Назад", IDC_BTN_BACK, 15, 45, 50, 14
+    DEFPUSHBUTTON   "Так", IDOK, 75, 45, 50, 14
+    PUSHBUTTON      "Відміна", IDCANCEL, 135, 45, 50, 14
+END
