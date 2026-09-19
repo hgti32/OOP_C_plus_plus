@@ -21,7 +21,7 @@
       "args": [
         "-fdiagnostics-color=always",
         "-g",
-        "-DUNICODE", // Добавили этот флаг
+        "-DUNICODE",
         "-D_UNICODE",
         "main.cpp",
         "module1.cpp",
