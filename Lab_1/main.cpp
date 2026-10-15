@@ -19,7 +19,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     if (!RegisterClassEx(&wcex)) return 0;
 
-    HWND hWnd = CreateWindowEx(0, L"Lab1Class", L"Лабораторна робота №1", WS_OVERLAPPEDWINDOW,
+    HWND hWnd = CreateWindowEx(0, L"Lab1Class", L"Лабораторна роботаaaaa №1", WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT, 600, 300, NULL, NULL, hInstance, NULL);
 
     if (!hWnd) return 0;
@@ -36,6 +36,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     return (int)msg.wParam;
 }
 
+enum {
+    IDM_WORK1_0,
+    IDM_WORK2_1,
+    IDM_WORK2_2
+};
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
     switch (message) {
         case WM_COMMAND: {
@@ -47,10 +53,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                 case IDM_WORK2: {
                     int state = 1;
                     
-                    while (state != 0) {
-                        if (state == 1) {
+                    while (state != IDM_WORK1_0) {
+                        if (state == IDM_WORK2_1) {
                             state = RunWork2_1(hWnd);
-                        } else if (state == 2) {
+                        } else if (state == IDM_WORK2_2) {
                             state = RunWork2_2(hWnd);
                         }
                     }
